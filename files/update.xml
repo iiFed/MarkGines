@@ -1,6 +1,6 @@
 <?xml version= "1.0"?>
-<sharpUpdate>
-	<update appId ="launcher">
+<AutoUpdate>
+	<update appId = "launcher">
 		<version>0.1.0.2</version>
 		<url>https://markgines.com/files/launcher.exe</url>
 		<filePath>Testapp2.exe</filePath>
@@ -8,4 +8,4 @@
 		<description>Added This</description>
 		<launchArgs></launchArgs>
 	</update>
-</sharpUpdate>
+</AutoUpdate>
