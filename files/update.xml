@@ -1,10 +1,11 @@
 <?xml version= "1.0"?>
 <sharpUpdate>
-	<update appId ="Flat_UI">
+	<update appId ="launcher">
 		<version>0.1.0.2</version>
 		<url>https://markgines.com/files/launcher.exe</url>
 		<filePath>Testapp2.exe</filePath>
-		<md5>ffbe48a7a9e78f128fc5f6fd145d76fc</md5>
+		<md5>efc29334686e908e89190b6a884dd15e</md5>
 		<description>Added This</description>
+		<launchArgs></launchArgs>
 	</update>
 </sharpUpdate>
