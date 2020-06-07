@@ -3,8 +3,8 @@
 	<update appId = "launcher">
 		<version>0.1.0.2</version>
 		<url>https://markgines.com/files/launcher.exe</url>
-		<filePath>Testapp2.exe</filePath>
-		<md5>37d98f51258bba100bcf6039bbf81095</md5>
+		<filePath>launcher.exe</filePath>
+		<md5>0d6da9a935e98cf0ae342fc93ee4b13d</md5>
 		<description>Added This</description>
 		<launchArgs></launchArgs>
 	</update>
