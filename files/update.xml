@@ -1,7 +1,7 @@
 <?xml version= "1.0"?>
 <AutoUpdate>
 	<update appId = "launcher">
-		<version>0.1.0.2</version>
+		<version>0.1.0.3</version>
 		<url>https://markgines.com/files/launcher.exe</url>
 		<filePath>launcher.exe</filePath>
 		<md5>1e12e57a2f5afd038297af36d3bfd463</md5>
