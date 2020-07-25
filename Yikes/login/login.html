@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BX | Login</title>
+    <meta name="description" content="BuilderX Web Portal">
+
+    <meta property="og:title" content="BuilderX">
+    <meta property="og:description" content="Login Page">
+    <meta property="og:image" content="icons/android-chrome-384x384.png">
+
+    <script defer src="login.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="login.css">
+
+    <!--[if lt IE 9]>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.14/es5-shim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.14/es5-sham.min.js"></script>
+    <![endif]-->
+
+    <!--[if lt IE 7]>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/json3/3.3.2/json3.min.js"></script>
+    <![endif]-->
+
+    <!--[if IE]>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/es6-shim/0.35.5/es6-shim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/es6-shim/0.35.5/es6-sham.min.js"></script>
+    <![endif]-->
+
+    <link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16x16.png">
+    <link rel="manifest" href="icons/site.webmanifest">
+    <link rel="mask-icon" href="icons/safari-pinned-tab.svg" color="#000000">
+    <link rel="shortcut icon" href="icons/favicon.ico">
+    <meta name="apple-mobile-web-app-title" content="BuilderX">
+    <meta name="application-name" content="BuilderX">
+    <meta name="msapplication-TileColor" content="#000000">
+    <meta name="msapplication-config" content="icons/browserconfig.xml">
+    <meta name="theme-color" content="#000000">
+
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+</head>
+<body>
+    <div class="login">
+        <div class="alert alert-success" id="success" style="display: none !important; width: 100%;">
+            <strong>Success!</strong> Redirecting to dashboard...
+        </div>
+        <div class="alert alert-danger" id="error" style="display: none !important; width: 100%;">
+            <strong>Error!</strong> <span id="resp">[..]]</span>
+        </div>
+        <h1>Login</h1>
+        <form id="login-form">
+            <input type="text" alt="Username" autocomplete="username" id="username" name="u" placeholder="Username" required="required" />
+            <input type="password" alt="Password" autocomplete="current-password" id="password" name="p" placeholder="Password" required="required" />
+            <div class="g-recaptcha" data-theme="dark" data-sitekey="6Lfr_bUZAAAAAMWfvw_mi2VnzMCPa_kokLRKkHpT"></div>
+            <br/>
+        </form>
+        <button for="login-form" type="submit" id="login" class="btn btn-primary btn-block btn-large">Submit</button>
+    </div>
+</body>
+</html>
